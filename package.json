@@ -1,0 +1,14 @@
+{
+  "name": "ina",
+  "version": "0.1.0",
+  "description": "Check name availability on npm",
+  "author": "Krisztian Nagy",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^18.1.0"
+  }
+}
