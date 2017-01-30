@@ -1,18 +1,17 @@
 'use strict';
 
-const http          = require('http');
 const request       = require('request');
 const repositoryUrl = 'https://registry.npmjs.org/';
 const downloadsUrl  = 'https://api.npmjs.org/downloads/point/last-month/';
 
 function getDownloadsCount(name) {
     return new Promise((resolve, reject) => {
-        request.get(downloadsUrl + name, { timeout : 2000 }, (error, response, body) => {
+        request.get(downloadsUrl + name, { timeout: 2000 }, (error, response, body) => {
             if (error) reject(error);
 
             let data        = JSON.parse(body);
             let packageData = {
-                    downloads: data.downloads || 0,
+                    downloads: data.downloads || 0
                 };
 
             resolve(packageData);
@@ -22,7 +21,7 @@ function getDownloadsCount(name) {
 
 function requestUrl(name) {
     return new Promise((resolve, reject) => {
-        request.get(repositoryUrl + name, { timeout : 2000 }, (error, response, body) => {
+        request.get(repositoryUrl + name, { timeout: 2000 }, (error, response, body) => {
             if (error) reject(error);
 
             if (response.statusCode === 200) {

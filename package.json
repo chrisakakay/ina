@@ -2,13 +2,28 @@
   "name": "ina",
   "version": "0.1.0",
   "description": "Check name availability on npm",
-  "author": "Krisztian Nagy",
+  "author": "Krisztian Nagy <chrisakakay@gmail.com> (http://chrisakakay.github.io/)",
+  "homepage": "https://github.com/chrisakakay/ina",
+  "bugs": {
+    "url": "https://github.com/chrisakakay/ina/issues",
+    "email": "chrisakakay@gmail.com"
+  },
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "lint": "eslint index.js",
+    "test": "jest",
+    "prepush": "npm run lint && npm run test"
   },
+  "keywords": [
+    "check",
+    "npm",
+    "name",
+    "taken",
+    "available"
+  ],
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^3.14.1",
     "jest": "^18.1.0"
   }
 }
