@@ -28,7 +28,17 @@ const urls = {
             statusCode: 404
         }
     },
-
+    'https://registry.npmjs.org/unpublished': {
+        response: {
+            statusCode: 200
+        },
+        body: JSON.stringify({
+            _id: 'unpublished',
+            time: {
+                modified: '0'
+            }
+        })
+    },
 }
 
 module.exports.get = (url, options, callback) => {

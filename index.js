@@ -26,16 +26,22 @@ function requestUrl(name) {
 
             if (response.statusCode === 200) {
                 let data        = JSON.parse(body);
+                let published   = data['dist-tags'] && data['dist-tags'].latest;
                 let packageData = {
-                        exists:     true,
-                        version:    `${data._id}@${data['dist-tags'].latest}`,
-                        modified:   data.time.modified
+                        exists:         true,
+                        published:      !!published,
+                        version:        `${data._id}@${published ? published : '-'}`,
+                        modified:       data.time.modified
                     };
 
-                getDownloadsCount(name).then((response) => {
-                    packageData.downloadsLastMonth = response.downloads;
+                if (published) {
+                    getDownloadsCount(name).then((response) => {
+                        packageData.downloadsLastMonth = response.downloads;
+                        resolve(packageData);
+                    });
+                } else {
                     resolve(packageData);
-                });
+                }
             } else {
                 resolve({ exists: false });
             }
