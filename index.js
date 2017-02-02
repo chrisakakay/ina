@@ -31,7 +31,7 @@ function requestUrl(name) {
                         id:             name,
                         exists:         true,
                         published:      !!published,
-                        version:        published ? published : 'unpublished',
+                        version:        published || 'unpublished',
                         modified:       data.time.modified
                     };
 
