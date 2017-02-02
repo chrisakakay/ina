@@ -28,9 +28,10 @@ function requestUrl(name) {
                 let data        = JSON.parse(body);
                 let published   = data['dist-tags'] && data['dist-tags'].latest;
                 let packageData = {
+                        id:             name,
                         exists:         true,
                         published:      !!published,
-                        version:        `${data._id}@${published ? published : '-'}`,
+                        version:        published ? published : 'unpublished',
                         modified:       data.time.modified
                     };
 

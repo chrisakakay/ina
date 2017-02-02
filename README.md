@@ -14,7 +14,7 @@ Check name availability on npm
 ``` javascript
 const ina = require('ina');
 
-ina.check('package-name').then((info) => { 
+ina.check('package-name').then((info) => {
     // info
 })
 ```
@@ -22,9 +22,11 @@ ina.check('package-name').then((info) => {
 Response example for existing package:
 ``` javascript
 {
+    id: 'package-name',
     exists: true,
-    version: 'package-name@0.1.0',
+    version: '0.1.0',
     modified: 'LatestTimeStamp',
+    published: true,
     dowloadsLastMonth: 100
 }
 ```
