@@ -19,6 +19,16 @@ describe('INA', function() {
             exists: true,
             version: '0.1.0',
             modified: '0',
+            published: true
+        }));
+    });
+
+    it('should handle existing package with downloads count', function() {
+        return ina.check('existing', true).then(a => expect(a).toEqual({
+            id: 'existing',
+            exists: true,
+            version: '0.1.0',
+            modified: '0',
             downloadsLastMonth: 100,
             published: true
         }));

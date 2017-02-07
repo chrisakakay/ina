@@ -19,7 +19,7 @@ function getDownloadsCount(name) {
     });
 }
 
-function requestUrl(name) {
+function requestUrl(name, includeDownloadsCount) {
     return new Promise((resolve, reject) => {
         request.get(repositoryUrl + name, { timeout: 2000 }, (error, response, body) => {
             if (error) reject(error);
@@ -35,7 +35,7 @@ function requestUrl(name) {
                         modified:       data.time.modified
                     };
 
-                if (published) {
+                if (includeDownloadsCount && published) {
                     getDownloadsCount(name).then((response) => {
                         packageData.downloadsLastMonth = response.downloads;
                         resolve(packageData);
@@ -50,10 +50,10 @@ function requestUrl(name) {
     });
 }
 
-module.exports.check = name => {
+module.exports.check = (name, includeDownloadsCount) => {
     if (!name || typeof name !== 'string') {
         return Promise.reject(new Error('Name is not defined'));
     }
 
-    return requestUrl(name);
+    return requestUrl(name, includeDownloadsCount);
 };

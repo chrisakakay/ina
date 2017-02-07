@@ -17,7 +17,15 @@ const ina = require('ina');
 ina.check('package-name').then((info) => {
     // info
 })
+
+ina.check('package-name', true).then((info) => {
+    // info
+})
 ```
+
+.check() accepts 2 parameters:
+* The first parameter is the package name
+* The second parameter is the download count for the last month
 
 Response example for existing package:
 ```javascript

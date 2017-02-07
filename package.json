@@ -1,6 +1,6 @@
 {
   "name": "ina",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Check name availability on npm",
   "author": "Krisztian Nagy <chrisakakay@gmail.com> (http://chrisakakay.github.io/)",
   "homepage": "https://github.com/chrisakakay/ina",
