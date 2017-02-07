@@ -5,13 +5,13 @@ Check name availability on npm
 
 
 ## Installation
-
-    npm install ina --save
-
+```bash
+npm install ina --save
+```
 
 ## Usage
 
-``` javascript
+```javascript
 const ina = require('ina');
 
 ina.check('package-name').then((info) => {
@@ -20,7 +20,7 @@ ina.check('package-name').then((info) => {
 ```
 
 Response example for existing package:
-``` javascript
+```javascript
 {
     id: 'package-name',
     exists: true,
@@ -32,7 +32,7 @@ Response example for existing package:
 ```
 
 Response example for not existing package:
-``` javascript
+```javascript
 {
     exists: false
 }
