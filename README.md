@@ -22,12 +22,15 @@ ina.check('package-name', true).then((info) => {
     // info
 })
 ```
+## API
 
 .check() accepts 2 parameters:
 * The first parameter is the package name
 * The second parameter is the download count for the last month
 
-Response example for existing package:
+## Example responses
+
+Response for existing package with downloads count:
 ```javascript
 {
     id: 'package-name',
@@ -39,7 +42,7 @@ Response example for existing package:
 }
 ```
 
-Response example for not existing package:
+Response for not existing package:
 ```javascript
 {
     exists: false
