@@ -14,10 +14,12 @@ npm install ina --save
 ```javascript
 const ina = require('ina');
 
+// get the package info
 ina.check('package-name').then((info) => {
     // info
 })
 
+// get the package info with download count for the last month
 ina.check('package-name', true).then((info) => {
     // info
 })
@@ -26,7 +28,7 @@ ina.check('package-name', true).then((info) => {
 
 .check() accepts 2 parameters:
 * The first parameter is the package name
-* The second parameter is the download count for the last month
+* The second parameter is boolean, if it's tro the download count for the last month will be included
 
 ## Example responses
 
